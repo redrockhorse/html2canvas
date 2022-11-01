@@ -84,10 +84,8 @@ export class ElementPaint {
             } else {
                 effects.unshift(...croplessEffects);
             }
-
             parent = parent.parent;
         }
-
         return effects.filter((effect) => contains(effect.target, target));
     }
 }
