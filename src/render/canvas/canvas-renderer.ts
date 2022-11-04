@@ -4,7 +4,8 @@ import {ElementContainer, FLAGS} from '../../dom/element-container';
 import {BORDER_STYLE} from '../../css/property-descriptors/border-style';
 import {CSSParsedDeclaration} from '../../css';
 import {TextContainer} from '../../dom/text-container';
-import {Path, transformPath} from '../path';
+import {Path} from '../path';
+// import {Path, transformPath} from '../path';
 import {BACKGROUND_CLIP} from '../../css/property-descriptors/background-clip';
 import {BoundCurves, calculateBorderBoxPath, calculateContentBoxPath, calculatePaddingBoxPath} from '../bound-curves';
 import {BezierCurve, isBezierCurve} from '../bezier-curve';
@@ -58,7 +59,7 @@ export interface RenderOptions {
     height: number;
 }
 
-const MASK_OFFSET = 10000;
+// const MASK_OFFSET = 10000;
 
 export class CanvasRenderer extends Renderer {
     canvas: HTMLCanvasElement;
@@ -720,7 +721,7 @@ export class CanvasRenderer extends Renderer {
             await this.renderBackgroundImage(paint.container);
 
             this.ctx.restore();
-
+            /** 
             styles.boxShadow
                 .slice(0)
                 .reverse()
@@ -755,6 +756,7 @@ export class CanvasRenderer extends Renderer {
                     this.ctx.fill();
                     this.ctx.restore();
                 });
+          */
         }
 
         let side = 0;

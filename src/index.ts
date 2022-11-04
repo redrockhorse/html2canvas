@@ -113,7 +113,6 @@ const renderElement = async (element: HTMLElement, opts: Partial<Options>): Prom
     };
 
     let canvas;
-
     if (foreignObjectRendering) {
         context.logger.debug(`Document cloned, using foreign object rendering`);
         const renderer = new ForeignObjectRenderer(context, renderOptions);
@@ -125,7 +124,6 @@ const renderElement = async (element: HTMLElement, opts: Partial<Options>): Prom
 
         context.logger.debug(`Starting DOM parsing`);
         const root = parseTree(context, clonedElement);
-
         if (backgroundColor === root.styles.backgroundColor) {
             root.styles.backgroundColor = COLORS.TRANSPARENT;
         }
@@ -157,7 +155,6 @@ const parseBackgroundColor = (context: Context, element: HTMLElement, background
     const bodyBackgroundColor = ownerDocument.body
         ? parseColor(context, getComputedStyle(ownerDocument.body).backgroundColor as string)
         : COLORS.TRANSPARENT;
-
     const defaultBackgroundColor =
         typeof backgroundColorOverride === 'string'
             ? parseColor(context, backgroundColorOverride)
